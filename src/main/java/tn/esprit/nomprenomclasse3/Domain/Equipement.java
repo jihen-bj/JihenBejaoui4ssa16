@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -17,4 +19,7 @@ public class Equipement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long idEquipement;
     String libelle;
+
+    @ManyToMany(mappedBy = "equipements")
+    List<Vehicule> vehicules;
 }
